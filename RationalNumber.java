@@ -64,4 +64,30 @@ public class RationalNumber extends RealNumber {
     numerator /= gcd;
     denominator /= gcd;
   }
+
+  public RationalNumber multiply(RationalNumber other){
+    return new RationalNumber(getNumerator() * other.getNumerator(),
+                              getDenominator() * other.getDenominator());
+  }
+
+  public RationalNumber divide(RationalNumber other){
+    return new RationalNumber(getNumerator() * other.getDenominator(),
+                              getDenominator() * other.getNumerator());
+  }
+
+  public RationalNumber add(RationalNumber other){
+    int nume = getNumerator();
+    int deno = getDenominator();
+    int otherNume = other.getNumerator();
+    int otherDeno = other.getDenominator();
+    return new RationalNumber(nume * otherDeno + otherNume * deno, deno * otherDeno);
+  }
+
+  public RationalNumber subtract(RationalNumber other){
+    int nume = getNumerator();
+    int deno = getDenominator();
+    int otherNume = other.getNumerator();
+    int otherDeno = other.getDenominator();
+    return new RationalNumber(nume * otherDeno - otherNume * deno, deno * otherDeno);
+  }
 }
