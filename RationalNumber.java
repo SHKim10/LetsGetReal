@@ -33,4 +33,26 @@ public class RationalNumber extends RealNumber {
     return (getNumerator() == other.getNumerator() &&
             getDenominator() == other.getDenominator());
   }
+
+  public String toString(){
+    return numerator + "/" + denominator;
+  }
+
+  private static int gcd(int a, int b){
+    a = Math.abs(a);
+    b = Math.abs(b);
+    if (a < b){
+      int c = b;
+      b = a;
+      a = c;
+    }
+    int remainder = a % b;
+    while (remainder != 0){
+      a = b;
+      b = remainder;
+      remainder = a % b;
+    }
+    return b;
+  }
+  
 }
