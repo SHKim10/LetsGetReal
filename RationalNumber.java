@@ -6,11 +6,14 @@ public class RationalNumber extends RealNumber {
     if (deno == 0){
       numerator = 0;
       denominator = 1;
-    }
-    else {
+    } else if (deno < 0){
+      numerator = -nume;
+      denominator = -deno;
+    } else {
       numerator = nume;
       denominator = deno;
     }
+    reduce();
   }
 
   public double getValue(){
@@ -39,6 +42,7 @@ public class RationalNumber extends RealNumber {
   }
 
   private static int gcd(int a, int b){
+    if (a == 0 || b == 0) return 1;
     a = Math.abs(a);
     b = Math.abs(b);
     if (a < b){
@@ -54,5 +58,10 @@ public class RationalNumber extends RealNumber {
     }
     return b;
   }
-  
+
+  private void reduce(){
+    int gcd = gcd(numerator, denominator);
+    numerator /= gcd;
+    denominator /= gcd;
+  }
 }
