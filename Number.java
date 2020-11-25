@@ -3,7 +3,7 @@ public abstract class Number{
   public abstract double getValue();
 
   public int compareTo(Number other){
-    return Double.compare(getValue(). other.getValue());
+    return Double.compare(getValue(), other.getValue());
   }
 
   public boolean equals(RealNumber other){
